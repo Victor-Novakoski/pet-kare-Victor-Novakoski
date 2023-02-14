@@ -11,12 +11,16 @@ class Sex(models.TextChoices):
 class Pet(models.Model):
     name = models.CharField(max_length=50)
     age = models.IntegerField()
-    weight = models.FloatField(max_length=30)
-    sex = models.CharField(max_length=20, choices=Sex.choices, default=Sex.DEFAULT)
+    weight = models.FloatField()
+    sex = models.CharField(
+        max_length=20,
+        choices=Sex.choices,
+        default=Sex.DEFAULT
+        )
 
     group = models.ForeignKey(
-        "groups.Group", on_delete=models.CASCADE, related_name="pets", null=True
+        "groups.Group", on_delete=models.PROTECT, related_name="pets"
     )
 
     def __repr__(self) -> str:
-        return f"<Recipe ({self.id}) - {self.name}>"
+        return f"<Pet ({self.id}) - {self.name}>"
