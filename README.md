@@ -1,4 +1,4 @@
-# M5 - Pet Kare
+# Pet Kare
 
 ## Como rodar os testes localmente
 
